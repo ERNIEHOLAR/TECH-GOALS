@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    overflow: hidden;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -38,12 +40,12 @@ header {
     flex-direction: column;
     align-items: center;
     margin: 1rem 0;
+    max-width: 100%;
+    height: auto;
 }
 
 #profile img {
     background-color: #cf6768;
-    width: auto;
-    height: auto;
 }
 
 .intro {
@@ -112,5 +114,11 @@ footer {
 @media (max-width: 600px) {
     main {
         padding: 1rem;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    #profile img {
+        overflow: hidden;
     }
 }
