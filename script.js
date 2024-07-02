@@ -3,16 +3,14 @@ function updateTime() {
     const currentDayElement = document.getElementById("currentDay");
 
     const now = new Date();
-    const offset = now.getTimezoneOffset() * 60000; // Timezone offset in milliseconds
-    const lagosTime = new Date(now.getTime() + offset + (3600000)); // UTC+1
-    const timeString = lagosTime.toTimeString().split(" ")[0]; // Extract time part
-    const dayOfWeek = lagosTime.toLocaleString('en-us', { weekday: 'long' });
+    const utcTime = now.toUTCString().split(" ")[4]; 
+    const dayOfWeek = now.toLocaleString('en-us', { weekday: 'long' });
 
-    currentTimeElement.textContent = timeString;
+    currentTimeElement.textContent = utcTime;
     currentDayElement.textContent = dayOfWeek;
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     updateTime();
-    setInterval(updateTime, 60000); // Update every minute
+    setInterval(updateTime, 60000); 
 });
